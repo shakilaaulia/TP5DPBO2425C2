@@ -33,10 +33,9 @@ Program ini memiliki dua kelas yaitu Product dan ProductMenu, dimana:
 **Alur Program**
 
 Penjelasan Kode Flow dari program:
-1. Saat program dijalankan, ProductMenu dibuat.
-2. Constructor ProductMenu memanggil populateList() → membuat dummy data produk.
-3. Data produk ditampilkan di JTable lewat setTable().
-4. User bisa:
+1. Saat program dijalankan, langsung koneksi ke databse.
+2. Constructor ProductMenu memanggil setTable() mengambil semua data dari database (SELECT) data produk ditampilkan di JTable.
+3. User bisa:
    - Menambah produk → isi form (id, nama, harga, kategori, stok) → klik Add → data baru masuk ke listProduct → tabel diperbarui (id tidak boleh sama).
    - Mengedit produk → pilih baris di tabel → data tampil di form → ubah → klik Update → data di listProduct berubah → tabel diperbarui (id tidak bisa di update).
    - Menghapus produk → pilih baris → klik Delete → muncul konfirmasi → jika yes, produk dihapus dari listProduct.
