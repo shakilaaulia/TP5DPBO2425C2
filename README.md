@@ -1,61 +1,51 @@
 # TP5DPBO2425C2 
 ## JANJI
-Saya Shakila Aulia dengan NIM 2403086 mengerjakan Tugas Praktikum 4 dalam mata kuliah Desain dan Pemograman Berorientasi Objek untuk keberkahanNya maka saya tidak melakukan kecurangan seperti yang telah dispesifikasikan. Aamiin
+Saya Shakila Aulia dengan NIM 2403086 mengerjakan Tugas Praktikum 5 dalam mata kuliah Desain dan Pemograman Berorientasi Objek untuk keberkahanNya maka saya tidak melakukan kecurangan seperti yang telah dispesifikasikan. Aamiin
 
 ---
 ## Desain dan Alur Program
 **Desain Program**
 
-Program ini merupakan implementasi game sederhana Flappy Bird menggunakan Java GUI (Swing).
-Terdapat beberapa kelas utama yaitu:
-1. App
-   - Kelas utama (main class) yang menjalankan program.
-   - Membuat objek Logic dan menginisialisasi window game.
-   - Mengatur ukuran, judul, serta menampilkan frame utama.
+Program ini memiliki dua kelas yaitu Product dan ProductMenu, dimana:
+1. Product
+   Product mereresentasikan produk berisi atribut dan juga method, yaitu:
    
-2. Logic
-   - Mengatur seluruh logika permainan (inti dari game loop).
-   - Meng-handle Gerakan burung (gravitasi, loncatan), Pergerakan pipa (Pipe), Deteksi tabrakan antara pemain dan pipa dan Skor permainan.
-   - Mengatur event keyboard saat tombol spasi untuk membuat burung terbang dan ketika mati, bisa tekan tombol R untuk restart.
+   Atribut umum:
+   - id = kode unik produk (contoh: P001).
+   - nama = nama produk (Laptop Asus, Roti Tawar, dll).
+   - harga = harga produk (double).
+   - kategori = kategori produk (Elektronik, Makanan, Minuman, dll).
+   - stok = jumlah stok produk (integer, diatur lewat JSlider ini merupakan atribut tambahan).
+   
+   Method: getter & setter untuk tiap atribut.
+   
+3. ProductMenu
+   Berfungsi sebagai GUI untuk menampilkan dan mengelola data produk.
+   - Menampilkan daftar produk dalam bentuk JTable.
+   - Ada form input (teks, comboBox kategori, slider stok).
+   - Ada tombol Add, Update, Delete, Cancel.
+   - Ada event handler (listener) untuk aksi tombol dan perubahan slider.
+   - Mengatur tampilan label, comboBox, dan slider.
 
-3. Player
-   Merepresentasikan karakter utama (burung).
-   - Atribut
-      - x, y → posisi burung.
-      - width, height → ukuran sprite burung.
-      - velocity → kecepatan jatuh/terbang.
-   - Method
-      - update() → memperbarui posisi berdasarkan gravitasi.
-      - jump() → memberi gaya ke atas saat pemain menekan spasi.
-      - draw(Graphics g) → menggambar burung di layar.
-4. Pipe
-   Merepresentasikan rintangan (pipa atas & bawah).
-   - Atribut
-      - x → posisi horizontal.
-      - width, height → ukuran pipa.
-      - isTop → menentukan apakah pipa di atas atau bawah.
-   - Method
-      - update() → menggerakkan pipa ke kiri layar.
-      - draw(Graphics g) → menggambar pipa.
-      - collides(Player p) → mendeteksi tabrakan dengan pemain.
+4. Dataase
+   Berfungsi untuk menghuungkan ke database serta eksekusi query insert, update, delete.
 
 **Alur Program**
 
-Penjelasan Alur dari program:
-1. Saat program dijalankan, App membuat window utama dan menampilkan menu.
-2. Ketika menekan tomol start langsung masuk ke game utama (memanggil logic).
-3. Di dalam Logic, game mulai dalam keadaan idle (belum mulai).
-4. Ketika user menekan spasi, permainan dimulai.
-5. Burung mulai jatuh akibat gravitasi.
-6. Pipa mulai bergerak dari kiri ke kanan.
-7. Pemain harus terus menekan spasi agar burung tidak jatuh dan bisa melewati celah antara pipa atas dan bawah.
-8. Setiap kali burung berhasil melewati satu set pipa, skor bertambah satu.
-9. Jika burung menabrak pipa atau tanah, permainan berakhir dan status berubah ke game over.
-10. Pemain dapat menekan tombol R untuk restart permainan dari awal.
+Penjelasan Kode Flow dari program:
+1. Saat program dijalankan, langsung koneksi ke databse.
+2. Constructor ProductMenu memanggil setTable() mengambil semua data dari database (SELECT) data produk ditampilkan di JTable.
+3. User bisa:
+   - Menambah produk → isi form (id, nama, harga, kategori, stok) → klik Add → data baru masuk ke listProduct → tabel diperbarui (id tidak boleh sama).
+   - Mengedit produk → pilih baris di tabel → data tampil di form → ubah → klik Update → data di listProduct berubah → tabel diperbarui (id tidak bisa di update).
+   - Menghapus produk → pilih baris → klik Delete → muncul konfirmasi → jika yes, produk dihapus dari listProduct.
+   - Membatalkan input → klik Cancel → form dikosongkan.
      
 ---
 ## DOKUMENTASI
 **Tampilan Output**
 
-![Tampilan Output](TP6.gif)
+![Tampilan Output](TP5.gif)
+
+
 
